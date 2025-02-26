@@ -1,3 +1,4 @@
+import { createUserInPrisma } from "@/app/actions";
 import { createClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
@@ -9,11 +10,17 @@ export async function GET(request: Request) {
   const code = requestUrl.searchParams.get("code");
   const origin = requestUrl.origin;
   const redirectTo = requestUrl.searchParams.get("redirect_to")?.toString();
+  const email = requestUrl.searchParams.get("email")?.toString();
+  const role = requestUrl.searchParams.get("role")?.toString();
 
   if (code) {
-    const supabase = await createClient();
-    await supabase.auth.exchangeCodeForSession(code);
+    const supabase = await createClient()
+    await supabase.auth.exchangeCodeForSession(code)
+    if (email) {
+      await createUserInPrisma(email, role)
+    }
   }
+
 
   if (redirectTo) {
     return NextResponse.redirect(`${origin}${redirectTo}`);
