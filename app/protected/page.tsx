@@ -77,14 +77,14 @@ export default async function Home() {
           </Link>
           <Link
             href="/empleados"
-            className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
+            className="bg-primary/50 hover:bg-primary text-white font-bold py-4 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
           >
             <Users className="mr-2" />
             Gestionar Empleados
           </Link>
           <Link
             href="/graficos"
-            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
+            className="bg-secondary/50 hover:bg-secondary text-white font-bold py-4 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
           >
             <BarChart className="mr-2" />
             Ver Gráficos
